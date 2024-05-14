@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './index.css';
-import Nav from './Components/Nav'
-import Card from './Components/Card'
+import Nav from './Components/Nav';
+import Card from './Components/Card';
 
 function App() {
   const [dates, setDate] = useState([]);
@@ -17,9 +17,9 @@ function App() {
   }, []);
 
   return (
-    <div className="stays-container">
+    <div className="stays-container container">
       <Nav />
-      <ul>
+      <ul className="listings stay-list">
         {dates.map((stay, index) => (
           <Card key={index} stay={stay} />
         ))}

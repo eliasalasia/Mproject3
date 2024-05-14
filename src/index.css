@@ -1,68 +1,121 @@
+/* Reset general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .stays-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #ff5a5f;
-  }
-  
-  .inputs {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .locationInput,
-  .guestsInput {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-  }
-  
-  .stay-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 2rem;
-  }
-  
-  .stay-item {
-    background-color: #f5f5f5;
-    padding: 10px;
-    border-radius: 5px;
-  }
-  
-  .stay-image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
-  .stay-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  
-  .stay-info li {
-    list-style: none;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor principal */
+.container, .stays-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Cabecera y navegación */
+header, nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px; /* Ajustar margen inferior */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #ff5a5f;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px; /* Ajustar margen derecho */
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Título principal */
+main h2 {
+  margin-bottom: 20px;
+}
+
+/* Listado de estancias */
+.listings, .stay-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px; /* Ajustar espacio entre elementos */
+}
+
+.listing, .stay-item {
+  background-color: #f5f5f5; /* Cambiar color de fondo */
+  padding: 10px;
+  border-radius: 10px; /* Ajustar radio de borde */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añadir sombra */
+  overflow: hidden; /* Ocultar desbordamiento */
+}
+
+.listing img, .stay-image {
+  width: 100%;
+  height: 200px; /* Ajustar altura fija */
+  object-fit: cover;
+  border-radius: 10px 10px 0 0; /* Ajustar radio de borde */
+}
+
+.listing h3, .stay-info li {
+  margin: 10px 0;
+}
+
+.listing p, .stay-info li {
+  margin: 0;
+  color: #666; /* Ajustar color de texto */
+}
+
+/* Footer */
+footer {
+  margin-top: 20px;
+  text-align: center;
+  color: #666;
+}
+
+/* Inputs */
+.inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Reducir el espacio entre los inputs */
+}
+
+.locationInput, .guestsInput {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem; /* Reducir el tamaño de fuente */
+}
+
+.stay-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem; /* Reducir el espacio entre los elementos */
+  padding: 10px; /* Añadir padding interno */
+}
+
+.stay-info li {
+  list-style: none;
+  font-size: 12px; /* Reducir el tamaño de fuente */
+  font-weight: 500; /* Peso de fuente más ligero */
+  color: #333; /* Color de texto más oscuro */
+}
