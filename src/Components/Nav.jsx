@@ -1,28 +1,34 @@
 import React, { useState } from 'react';
-import logo from '../image/logo.png'; // Importa la imagen del logo
-import lupa from '../image/lupa.png'
+import logo from '../image/logo.png';
+import lupa from '../image/lupa.png';
 
+const Nav = ({ dates, setFiltered }) => {
+  const [selectedLocation, setSelectedLocation] = useState('');
+  const [guests, setGuests] = useState('');
 
-const Nav = ({dates, setFiltered}) => {
-  const [search, setSearch] = useState('')
- function filterData() {
-  if (search.trim() !== '') {
-    const rs = dates.filter(dat => dat.city.toLowerCase().includes(search.toLowerCase()))
-    setFiltered(rs)
-  } else {
-    setFiltered(dates)
+  function filterData() {
+    const rs = dates.filter(dat => {
+      const locationMatch = selectedLocation === '' || dat.city.toLowerCase() === selectedLocation.toLowerCase();
+      const guestsMatch = dat.maxGuests >= guests;
+      return locationMatch && guestsMatch;
+    });
+    setFiltered(rs);
   }
-  
- }
 
   return (
     <nav>
       <a href="#" className="logo">
-        <img src={logo} alt="airbnb logo" className="logo-image" /> 
+        <img src={logo} alt="airbnb logo" className="logo-image" />
       </a>
       <div className='inputs'>
-        <input className='locationInput' type="text" placeholder='LOCATION' value={search} onChange={(e)=> setSearch((e.target.value))}/>
-        <input className='guestsInput' type="text" placeholder='Add Guests' />
+        <select className='locationSelect' value={selectedLocation} onChange={(e) => setSelectedLocation(e.target.value)}>
+          <option value=""> Locations</option>
+          <option value="Helsinki">Helsinki</option>
+          <option value="Turku">Turku</option>
+          <option value="Vaasa">Vaasa</option>
+          <option value="Oulu">Oulu</option>
+        </select>
+        <input className='guestsInput' type="number" placeholder='Add Guests' value={guests} onChange={(e) => setGuests(e.target.value)} max="10" min="1" />
         <button className='btn' onClick={filterData}>
           <img src={lupa} alt="search" />
         </button>
