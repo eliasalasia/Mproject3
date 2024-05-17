@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import logo from '../image/logo.png';
-import lupa from '../image/lupa.png';
+import logo from '../assets/logo.png';
+import lupa from '../assets/lupa.png';
 
 const Nav = ({ dates, setFiltered }) => {
   const [selectedLocation, setSelectedLocation] = useState('');
-  const [guests, setGuests] = useState('');
+  const [guests, setGuests] = useState(1);
 
   function filterData() {
     const rs = dates.filter(dat => {
