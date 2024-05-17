@@ -1,23 +1,33 @@
-import React from 'react';
-import star from '../assets/star.png'
-const Card = ({ stay }) => {
+import './Card.css'
+import star from '../assets/star.png';
+
+
+function Card({ stay }) {
+
   return (
-    
-    <li className="stay-item">
 
-      
-      <img className="stay-image" src={stay.photo} alt={stay.title} />
-      <div className="stay-info">
-        
-          <p>
-            {stay.superHost ? 'SuperHost' : true } {stay.type}  {stay.beds ? `Beds: ${stay.beds}` : ''} 
-            <img className="star" src={star} alt="Star"/>
-        <span>{stay.rating}</span>
-          </p>
+
+    <div className="card-container">
+      <figure className='figure-card'>
+        <img className='image-class'
+          src={stay.photo}
+          alt={stay.title} />
+      </figure>
+      <div className="ratings">
+        <div className="rating">
+          <img className="star-icon" src={star} alt="Star icon" />
+          <span>{stay.rating}</span>
+        </div>
+        <p className="type">{stay.type} · {stay.beds ? `beds ${stay.beds}`: ''}</p>
+        {stay.superHost && <div className="superhost">SUPER HOST</div>}
       </div>
-      <h3>{stay.title}</h3>
-    </li>
-  );
-};
+      <h2 className="title">{stay.title}</h2>
+    </div>
 
-export default Card;
+
+
+
+  )
+}
+
+export default Card
